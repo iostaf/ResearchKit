@@ -12,13 +12,11 @@
 @class ORKStepResult;
 
 
-NS_ENUM(NSInteger, _ORKValidationRelation) {
+typedef enum {
     ORKValidationRelationLessThanOrEqual = -1,
     ORKValidationRelationEqual = 0,
     ORKValidationRelationGreaterThanOrEqual = 1,
-};
-typedef enum _ORKValidationRelation ORKValidationRelation;
-
+} ORKValidationRelation;
 
 @interface ORKFormValidator : NSObject
 
