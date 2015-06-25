@@ -820,22 +820,6 @@ Returns an initialized numeric answer format using the specified style, unit des
 
 
 /**
- TODO: Document it!
- */
-ORK_CLASS_AVAILABLE
-@interface ORKPhoneNumberAnswerFormat : ORKNumericAnswerFormat
-
-/**
- The maximum length of digits users can enter. (read-only)
-
- When the value of this property is 0, there is no maximum.
- */
-@property (readonly) NSInteger maximumLength;
-
-@end
-
-
-/**
  The `ORKTimeOfDayAnswerFormat` class represents the answer format for questions that require users
  to enter a time of day.
  
@@ -1005,6 +989,15 @@ ORK_CLASS_AVAILABLE
  By default, the value of this property is `UITextSpellCheckingTypeDefault`.
  */
 @property UITextSpellCheckingType spellCheckingType;
+
+@end
+
+
+/**
+ TODO: Document it!
+ */
+ORK_CLASS_AVAILABLE
+@interface ORKPhoneNumberAnswerFormat : ORKTextAnswerFormat
 
 @end
 

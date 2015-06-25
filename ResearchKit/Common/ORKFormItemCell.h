@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface ORKFormItemPhoneNumberCell : ORKFormItemNumericCell
+@interface ORKFormItemPhoneNumberCell : ORKFormItemTextFieldBasedCell
 
 @end
 

@@ -632,16 +632,17 @@ static const CGFloat kHMargin = 15.0;
 
 - (void)cellInit {
     [super cellInit];
+
+    self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    [self.textField addTarget:self action:@selector(valueFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    self.textField.allowsSelection = YES;
+
+    self.textField.manageUnitAndPlaceholder = YES;
+    self.textField.placeholder = self.formItem.placeholder;
+
     _phoneNumberFormatter = [ECPhoneNumberFormatter new];
-}
 
-- (void)valueFieldDidChange:(UITextField *)textField {
-    NSString *formattedPhoneNumberText = textField.text;
-    NSString *rawTextValue = [self rawValue:formattedPhoneNumberText];
-    formattedPhoneNumberText = [_phoneNumberFormatter stringForObjectValue:rawTextValue];
-    textField.text = formattedPhoneNumberText;
-
-    [self inputValueDidChange];
+    [self answerDidChange];
 }
 
 - (NSString *)rawValue:(const NSString *)formattedPhoneNumberText {
@@ -654,6 +655,14 @@ static const CGFloat kHMargin = 15.0;
         }
     }
     return rawTextValue;
+}
+
+- (void)inputValueDidChange {
+
+    NSString *text = self.textField.text;
+    [self setAnswerWithText:text];
+
+    [super inputValueDidChange];
 }
 
 - (void)answerDidChange {
@@ -694,6 +703,64 @@ static const CGFloat kHMargin = 15.0;
     [self inputValueDidChange];
 
     return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    NSString *text = textField.text;
+    BOOL isValid = [self isAnswerValid];
+    if (! isValid) {
+        [self showValidityAlertWithMessage:[[self.formItem impliedAnswerFormat] localizedInvalidValueStringWithAnswerString:text]];
+    }
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [super textFieldDidEndEditing:textField];
+
+    [self inputValueDidChange];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    BOOL isValid = [self isAnswerValid];
+
+    if (! isValid) {
+        [self showValidityAlertWithMessage:[[self.formItem impliedAnswerFormat] localizedInvalidValueStringWithAnswerString:textField.text]];
+        return NO;
+    }
+
+    [self.textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    [self inputValueDidClear];
+
+    return YES;
+}
+
+- (void)valueFieldDidChange:(UITextField *)textField {
+    NSString *formattedPhoneNumberText = textField.text;
+    NSString *rawTextValue = [self rawValue:formattedPhoneNumberText];
+    formattedPhoneNumberText = [_phoneNumberFormatter stringForObjectValue:rawTextValue];
+    textField.text = formattedPhoneNumberText;
+
+    [self inputValueDidChange];
+}
+
+- (void)setAnswerWithText:(NSString *)text {
+    BOOL updateInput = NO;
+    id answer = ORKNullAnswerValue();
+    if ([text length]) {
+        answer = [self rawValue:text];
+        if (! answer) {
+            answer = ORKNullAnswerValue();
+            updateInput = YES;
+        }
+    }
+
+    [self ork_setAnswer:answer];
+    if (updateInput) {
+        [self answerDidChange];
+    }
 }
 
 @end
