@@ -24,6 +24,8 @@
 /* Begin PBXBuildFile section */
 		02B7B7C51B3BE56700F61E0B /* ECPhoneNumberFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */; };
 		02B7B7C61B3BE56700F61E0B /* ECPhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */; };
+		02F570BA1B37FB75000ABC52 /* ORKFormValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 02F570B81B37FB75000ABC52 /* ORKFormValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02F570BB1B37FB75000ABC52 /* ORKFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F570B91B37FB75000ABC52 /* ORKFormValidator.m */; };
 		147503AF1AEE8071004B17F3 /* ORKAudioGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 147503AD1AEE8071004B17F3 /* ORKAudioGenerator.h */; };
 		147503B01AEE8071004B17F3 /* ORKAudioGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 147503AE1AEE8071004B17F3 /* ORKAudioGenerator.m */; };
 		147503B71AEE807C004B17F3 /* ORKToneAudiometryContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 147503B11AEE807C004B17F3 /* ORKToneAudiometryContentView.h */; };
@@ -346,7 +348,6 @@
 		B17FE7FD1A8DBE7C00BF9C28 /* Artwork.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861610BF1A8D8EDD00245F7A /* Artwork.xcassets */; };
 		B183A4A21A8535D100C76870 /* ResearchKit_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B894391A00345200C5CF2D /* ResearchKit_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B183A4DD1A8535D100C76870 /* ResearchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C1DE4F196F541F00F75544 /* ResearchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B183A5011A8535D100C76870 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B1A860EA1A9693C400EA57B7 /* consent_01@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B1A860DB1A9693C400EA57B7 /* consent_01@2x.m4v */; };
 		B1A860EB1A9693C400EA57B7 /* consent_02@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B1A860DC1A9693C400EA57B7 /* consent_02@2x.m4v */; };
 		B1A860EC1A9693C400EA57B7 /* consent_03@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B1A860DD1A9693C400EA57B7 /* consent_03@2x.m4v */; };
@@ -416,6 +417,8 @@
 /* Begin PBXFileReference section */
 		02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECPhoneNumberFormatter.h; path = ECPhoneNumberFormatter/ECPhoneNumberFormatter.h; sourceTree = "<group>"; };
 		02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECPhoneNumberFormatter.m; path = ECPhoneNumberFormatter/ECPhoneNumberFormatter.m; sourceTree = "<group>"; };
+		02F570B81B37FB75000ABC52 /* ORKFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKFormValidator.h; sourceTree = "<group>"; };
+		02F570B91B37FB75000ABC52 /* ORKFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKFormValidator.m; sourceTree = "<group>"; };
 		147503AD1AEE8071004B17F3 /* ORKAudioGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKAudioGenerator.h; sourceTree = "<group>"; };
 		147503AE1AEE8071004B17F3 /* ORKAudioGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKAudioGenerator.m; sourceTree = "<group>"; };
 		147503B11AEE807C004B17F3 /* ORKToneAudiometryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKToneAudiometryContentView.h; sourceTree = "<group>"; };
@@ -870,6 +873,15 @@
 			path = ECPhoneNumberFormatter;
 			sourceTree = "<group>";
 		};
+		02F570B71B37FB32000ABC52 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				02F570B81B37FB75000ABC52 /* ORKFormValidator.h */,
+				02F570B91B37FB75000ABC52 /* ORKFormValidator.m */,
+			);
+			name = Validators;
+			sourceTree = "<group>";
+		};
 		147503AC1AEE8058004B17F3 /* Tone Audiometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,6 +994,7 @@
 		86C40B511A8D7C5B00081FAC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				02F570B71B37FB32000ABC52 /* Validators */,
 				B12EFF331AB2110300A80147 /* Task */,
 				B12EFF341AB2111200A80147 /* Step */,
 				B12EFF3B1AB211E000A80147 /* Answer Format */,
@@ -1800,6 +1813,7 @@
 				147503BB1AEE807C004B17F3 /* ORKToneAudiometryStepViewController.h in Headers */,
 				86C40D441A8D7C5C00081FAC /* ORKInstructionStepViewController.h in Headers */,
 				86C40D841A8D7C5C00081FAC /* ORKSelectionTitleLabel.h in Headers */,
+				02F570BA1B37FB75000ABC52 /* ORKFormValidator.h in Headers */,
 				BC13CE3C1B0662990044153C /* ORKStepNavigationRule_Private.h in Headers */,
 				86C40D3C1A8D7C5C00081FAC /* ORKImageChoiceLabel.h in Headers */,
 				BC4194291AE8453A00073D6B /* ORKObserver.h in Headers */,
@@ -2294,6 +2308,7 @@
 				86C40CF41A8D7C5C00081FAC /* ORKBodyLabel.m in Sources */,
 				86C40C941A8D7C5C00081FAC /* ORKAudioRecorder.m in Sources */,
 				86C40C581A8D7C5C00081FAC /* ORKTappingIntervalStepViewController.m in Sources */,
+				02F570BB1B37FB75000ABC52 /* ORKFormValidator.m in Sources */,
 				86C40E0E1A8D7C5C00081FAC /* ORKConsentReviewStepViewController.m in Sources */,
 				86C40E261A8D7C5C00081FAC /* ORKEAGLMoviePlayerView.m in Sources */,
 				86C40CC21A8D7C5C00081FAC /* ORKCompletionStep.m in Sources */,
@@ -2305,7 +2320,6 @@
 				86C40D361A8D7C5C00081FAC /* ORKHelpers.m in Sources */,
 				86C40C181A8D7C5C00081FAC /* ORKAudioContentView.m in Sources */,
 				86C40C8E1A8D7C5C00081FAC /* ORKActiveStepViewController.m in Sources */,
-				B183A5011A8535D100C76870 /* (null) in Sources */,
 				86C40CE61A8D7C5C00081FAC /* ORKAnswerFormat.m in Sources */,
 				25ECC0961AFBD68300F3D63B /* ORKReactionTimeStep.m in Sources */,
 				BC13CE3A1B0660220044153C /* ORKNavigableOrderedTask.m in Sources */,

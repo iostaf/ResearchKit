@@ -76,6 +76,11 @@ ORK_CLASS_AVAILABLE
  */
 @property (nonatomic, copy, nullable) NSArray *formItems;
 
+/**
+ The array of validators in the form.
+ */
+@property (nonatomic, copy, nullable) NSArray *formValidators;
+
 @end
 
 

@@ -51,5 +51,8 @@ typedef NS_ENUM(NSInteger, ORKErrorCode) {
     ORKErrorException,
     
     /// Multiple errors were encountered during an operation.
-    ORKErrorMultipleErrors
+    ORKErrorMultipleErrors,
+
+    /// Validation Error
+    ORKErrorValidationError
 } ORK_ENUM_AVAILABLE;

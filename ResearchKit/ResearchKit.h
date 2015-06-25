@@ -43,6 +43,7 @@
 
 #import <ResearchKit/ORKAnswerFormat.h>
 #import <ResearchKit/ORKHealthAnswerFormat.h>
+#import <ResearchKit/ORKFormValidator.h>
 
 #import <ResearchKit/ORKResult.h>
 #import <ResearchKit/ORKResultPredicate.h>

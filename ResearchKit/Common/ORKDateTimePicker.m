@@ -196,20 +196,35 @@
 
 - (void)valueChanged:(id)sender {
     _date = _pickerView.date;
-    
+
+    BOOL valueChanged = YES;
     if ([self isTimeOfDay]) {
         NSDateComponents *answer = ORKTimeOfDayComponentsFromDate([_pickerView date]);
+
+        if ([_answer isKindOfClass:[NSDateComponents class]]) {
+            NSDateComponents *previousAnswer = _answer;
+            valueChanged = answer.hour != previousAnswer.hour ||
+                    answer.minute != previousAnswer.minute ||
+                    answer.second != previousAnswer.second;
+        }
+
         _answer = answer;
     } else {
         NSDate *dateAnswer = _date;
+
+        if ([_answer isKindOfClass:[NSDate class]]) {
+            valueChanged = [dateAnswer compare:_answer] != NSOrderedSame;
+        }
+
         _answer = dateAnswer;
     }
-    
-    if ([self.pickerDelegate respondsToSelector:@selector(picker:answerDidChangeTo:)]) {
-        [self.pickerDelegate picker:self answerDidChangeTo:self.answer];
+
+    if (valueChanged) {
+        if ([self.pickerDelegate respondsToSelector:@selector(picker:answerDidChangeTo:)]) {
+            [self.pickerDelegate picker:self answerDidChangeTo:self.answer];
+        }
     }
 }
-
 - (ORKQuestionType)questionType {
     return self.answerFormat.questionType;
 }

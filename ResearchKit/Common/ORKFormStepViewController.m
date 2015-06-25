@@ -529,6 +529,14 @@
             return NO;
         }
     }
+    for (ORKFormValidator *validator in [self formValidators]) {
+        NSError *error;
+        BOOL isValid = [validator validateResult:self.result withError:&error];
+        if (! isValid) {
+            [self showValidityAlertWithMessage:validator.errorMessage];
+            return NO;
+        }
+    }
     return YES;
 }
 
@@ -567,6 +575,10 @@
     }
     
     return [array copy];
+}
+
+- (NSArray *)formValidators {
+    return [[self formStep] formValidators];
 }
 
 - (void)showValidityAlertWithMessage:(NSString *)text {
