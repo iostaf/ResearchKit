@@ -243,6 +243,18 @@
     [super prepareView];
 }
 
+- (BOOL)isAnswerValid {
+    id answer = self.answer;
+    
+    if (answer == ORKNullAnswerValue()) {
+        return YES;
+    }
+    
+    ORKAnswerFormat *answerFormat = [self.step impliedAnswerFormat];
+    ORKTextAnswerFormat *textFormat = (ORKTextAnswerFormat *)answerFormat;
+    return [textFormat isAnswerValidWithString:self.textField.text];
+}
+
 - (BOOL)shouldContinue {
     return ![self correctValueIfNeeded];
 }
@@ -265,6 +277,15 @@
 
 - (BOOL)correctValueIfNeeded {
     ORKAnswerFormat *impliedFormat = [self.step impliedAnswerFormat];
+
+    if ([impliedFormat isKindOfClass:[ORKEmailTextAnswerFormat class]]) {
+        BOOL isValid = [self isAnswerValid];
+        if (! isValid) {
+            [self showValidityAlertWithMessage:[[self.step impliedAnswerFormat] localizedInvalidValueStringWithAnswerString:self.textField.text]];
+        }
+        return isValid;
+    }
+
     NSAssert([impliedFormat isKindOfClass:[ORKTextAnswerFormat class]], @"answerFormat should be ORKTextAnswerFormat type instance.");
     NSString *text = self.textField.text;
     NSInteger maxLength = [(ORKTextAnswerFormat *)impliedFormat maximumLength];

@@ -1694,6 +1694,39 @@ static NSArray *ork_processTextChoices(NSArray *textChoices) {
 @end
 
 
+#pragma mark - ORKEmailTextAnswerFormat
+
+@implementation ORKEmailTextAnswerFormat
+
+- (instancetype)initWithMaximumLength:(NSInteger)maximumLength {
+    self = [super initWithMaximumLength:maximumLength];
+    if (self) {
+        self.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.spellCheckingType = UITextSpellCheckingTypeNo;
+        self.multipleLines = NO;
+    }
+    return self;
+}
+
+- (BOOL)isAnswerValid:(id)answer {
+    BOOL isValid = YES;
+    if ([answer isKindOfClass:[NSString class]]) {
+        NSString *answerAsString = (NSString *)answer;
+        isValid = isValid && [self isAnswerValidWithString:answerAsString];
+    }
+    return isValid;
+}
+
+- (BOOL)isAnswerValidWithString:(NSString *)text {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:text];
+}
+
+@end
+
+
 #pragma mark - ORKTimeIntervalAnswerFormat
 
 @implementation ORKTimeIntervalAnswerFormat

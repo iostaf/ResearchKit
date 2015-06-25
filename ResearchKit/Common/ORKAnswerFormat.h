@@ -108,6 +108,7 @@ typedef NS_ENUM(NSInteger, ORKNumberFormattingStyle) {
 @class ORKDateAnswerFormat;
 @class ORKTextAnswerFormat;
 @class ORKTimeIntervalAnswerFormat;
+@class ORKEmailTextAnswerFormat;
 
 
 /**
@@ -992,6 +993,10 @@ ORK_CLASS_AVAILABLE
 
 @end
 
+
+ORK_CLASS_AVAILABLE
+@interface ORKEmailTextAnswerFormat : ORKTextAnswerFormat
+@end
 
 /**
  TODO: Document it!
