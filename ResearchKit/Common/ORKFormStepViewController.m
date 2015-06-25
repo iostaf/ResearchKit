@@ -713,6 +713,11 @@
                         class = [ORKFormItemNumericCell class];
                         break;
                     }
+
+                    case ORKQuestionTypePhoneNumber: {
+                        class = [ORKFormItemPhoneNumberCell class];
+                        break;
+                    }
                         
                     case ORKQuestionTypeText: {
                         ORKTextAnswerFormat *textFormat = (ORKTextAnswerFormat *)answerFormat;

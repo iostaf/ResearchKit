@@ -44,6 +44,7 @@
 #import "ORKAccessibility.h"
 #import "ORKPicker.h"
 #import "ORKScaleSliderView.h"
+#import "ECPhoneNumberFormatter.h"
 
 
 static const CGFloat kVMargin = 10.0;
@@ -618,6 +619,36 @@ static const CGFloat kHMargin = 15.0;
     if (updateInput) {
         [self answerDidChange];
     }
+}
+
+@end
+
+
+#pragma mark - ORKFormItemPhoneNumberCell
+
+@implementation ORKFormItemPhoneNumberCell {
+    ECPhoneNumberFormatter *_phoneNumberFormatter;
+}
+
+- (void)cellInit {
+    [super cellInit];
+    _phoneNumberFormatter = [ECPhoneNumberFormatter new];
+}
+
+- (void)valueFieldDidChange:(UITextField *)textField {
+    NSString *formattedPhoneNumberText = textField.text;
+    NSString *rawTextValue;
+    id objectValue;
+    NSString *error;
+    if ([_phoneNumberFormatter getObjectValue:&objectValue forString:formattedPhoneNumberText errorDescription:&error]) {
+        if ([objectValue isKindOfClass:[NSString class]]) {
+            rawTextValue = (NSString *)objectValue;
+        }
+    }
+    formattedPhoneNumberText = [_phoneNumberFormatter stringForObjectValue:rawTextValue];
+    textField.text = formattedPhoneNumberText;
+
+    [self inputValueDidChange];
 }
 
 @end

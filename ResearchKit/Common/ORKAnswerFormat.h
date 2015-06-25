@@ -73,7 +73,10 @@ typedef NS_ENUM(NSInteger, ORKQuestionType) {
     ORKQuestionTypeDate,
     
     /// In a time interval question, the participant can enter a time span by using a picker.
-    ORKQuestionTypeTimeInterval
+    ORKQuestionTypeTimeInterval,
+
+    /// In phone number question(s)
+    ORKQuestionTypePhoneNumber
 } ORK_ENUM_AVAILABLE;
 
 /// An enumeration of the types of answer choices available.
@@ -813,6 +816,14 @@ Returns an initialized numeric answer format using the specified style, unit des
  */
 @property (copy, nullable) NSNumber *maximum;
 
+@end
+
+
+/**
+ TODO: Document it!
+ */
+ORK_CLASS_AVAILABLE
+@interface ORKPhoneNumberAnswerFormat : ORKNumericAnswerFormat
 @end
 
 

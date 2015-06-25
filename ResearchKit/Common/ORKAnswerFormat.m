@@ -52,6 +52,7 @@ NSString *ORKQuestionTypeString(ORKQuestionType questionType) {
             SQT_CASE(MultipleChoice);
             SQT_CASE(Decimal);
             SQT_CASE(Integer);
+            SQT_CASE(PhoneNumber);
             SQT_CASE(Boolean);
             SQT_CASE(Text);
             SQT_CASE(DateAndTime);
@@ -1213,6 +1214,22 @@ static NSArray *ork_processTextChoices(NSArray *textChoices) {
         sanitizedText = [self removeDecimalSeparatorsFromText:text numAllowed:0 separator:(NSString *)separator];
     }
     return sanitizedText;
+}
+
+@end
+
+
+#pragma mark - ORKPhoneNumberAnswerFormat
+
+@implementation ORKPhoneNumberAnswerFormat
+
+- (instancetype)init {
+    self = [super initWithStyle:ORKNumericAnswerStyleInteger unit:nil minimum:nil maximum:nil];
+    return self;
+}
+
+- (ORKQuestionType)questionType {
+    return ORKQuestionTypePhoneNumber;
 }
 
 @end
