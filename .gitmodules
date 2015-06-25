@@ -1,0 +1,3 @@
+[submodule "ResearchKit/Vendor/ECPhoneNumberFormatter"]
+	path = ResearchKit/Vendor/ECPhoneNumberFormatter
+	url = git@github.com:iostaf/ECPhoneNumberFormatter.git

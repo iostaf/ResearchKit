@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		02B7B7C51B3BE56700F61E0B /* ECPhoneNumberFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */; };
+		02B7B7C61B3BE56700F61E0B /* ECPhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */; };
 		147503AF1AEE8071004B17F3 /* ORKAudioGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 147503AD1AEE8071004B17F3 /* ORKAudioGenerator.h */; };
 		147503B01AEE8071004B17F3 /* ORKAudioGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 147503AE1AEE8071004B17F3 /* ORKAudioGenerator.m */; };
 		147503B71AEE807C004B17F3 /* ORKToneAudiometryContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 147503B11AEE807C004B17F3 /* ORKToneAudiometryContentView.h */; };
@@ -412,6 +414,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECPhoneNumberFormatter.h; path = ECPhoneNumberFormatter/ECPhoneNumberFormatter.h; sourceTree = "<group>"; };
+		02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECPhoneNumberFormatter.m; path = ECPhoneNumberFormatter/ECPhoneNumberFormatter.m; sourceTree = "<group>"; };
 		147503AD1AEE8071004B17F3 /* ORKAudioGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKAudioGenerator.h; sourceTree = "<group>"; };
 		147503AE1AEE8071004B17F3 /* ORKAudioGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKAudioGenerator.m; sourceTree = "<group>"; };
 		147503B11AEE807C004B17F3 /* ORKToneAudiometryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKToneAudiometryContentView.h; sourceTree = "<group>"; };
@@ -849,6 +853,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B7B6151B3BE56600F61E0B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				02B7B6161B3BE56600F61E0B /* ECPhoneNumberFormatter */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		02B7B6161B3BE56600F61E0B /* ECPhoneNumberFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */,
+				02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */,
+			);
+			path = ECPhoneNumberFormatter;
+			sourceTree = "<group>";
+		};
 		147503AC1AEE8058004B17F3 /* Tone Audiometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +948,7 @@
 		86B623AF19520B770074CD3C /* ResearchKit */ = {
 			isa = PBXGroup;
 			children = (
+				02B7B6151B3BE56600F61E0B /* Vendor */,
 				B1C1DE4F196F541F00F75544 /* ResearchKit.h */,
 				B1B894391A00345200C5CF2D /* ResearchKit_Private.h */,
 				86C40B511A8D7C5B00081FAC /* Common */,
@@ -1868,6 +1890,7 @@
 				86C40C881A8D7C5C00081FAC /* ORKActiveStepTimerView.h in Headers */,
 				86C40C161A8D7C5C00081FAC /* ORKAudioContentView.h in Headers */,
 				86C40CB41A8D7C5C00081FAC /* ORKTouchRecorder.h in Headers */,
+				02B7B7C51B3BE56700F61E0B /* ECPhoneNumberFormatter.h in Headers */,
 				86C40DEA1A8D7C5C00081FAC /* UIBarButtonItem+ORKBarButtonItem.h in Headers */,
 				86C40CF61A8D7C5C00081FAC /* ORKBorderedButton.h in Headers */,
 				86C40D4A1A8D7C5C00081FAC /* ORKLabel.h in Headers */,
@@ -2181,6 +2204,7 @@
 				86C40C801A8D7C5C00081FAC /* ORKActiveStep.m in Sources */,
 				86C40D721A8D7C5C00081FAC /* ORKRoundTappingButton.m in Sources */,
 				86C40E2A1A8D7C5C00081FAC /* ORKSignatureView.m in Sources */,
+				02B7B7C61B3BE56700F61E0B /* ECPhoneNumberFormatter.m in Sources */,
 				BCFF24BD1B0798D10044EC35 /* ORKResultPredicate.m in Sources */,
 				25ECC0A41AFBDD2700F3D63B /* ORKReactionTimeStimulusView.m in Sources */,
 				86C40CBA1A8D7C5C00081FAC /* ORKVoiceEngine.m in Sources */,
