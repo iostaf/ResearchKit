@@ -1225,6 +1225,7 @@ static NSArray *ork_processTextChoices(NSArray *textChoices) {
 
 - (instancetype)init {
     self = [super initWithStyle:ORKNumericAnswerStyleInteger unit:nil minimum:nil maximum:nil];
+    _maximumLength = 10;
     return self;
 }
 

@@ -637,6 +637,14 @@ static const CGFloat kHMargin = 15.0;
 
 - (void)valueFieldDidChange:(UITextField *)textField {
     NSString *formattedPhoneNumberText = textField.text;
+    NSString *rawTextValue = [self rawValue:formattedPhoneNumberText];
+    formattedPhoneNumberText = [_phoneNumberFormatter stringForObjectValue:rawTextValue];
+    textField.text = formattedPhoneNumberText;
+
+    [self inputValueDidChange];
+}
+
+- (NSString *)rawValue:(const NSString *)formattedPhoneNumberText {
     NSString *rawTextValue;
     id objectValue;
     NSString *error;
@@ -645,10 +653,47 @@ static const CGFloat kHMargin = 15.0;
             rawTextValue = (NSString *)objectValue;
         }
     }
-    formattedPhoneNumberText = [_phoneNumberFormatter stringForObjectValue:rawTextValue];
-    textField.text = formattedPhoneNumberText;
+    return rawTextValue;
+}
+
+- (void)answerDidChange {
+    id answer = self.answer;
+    if (answer && answer != ORKNullAnswerValue()) {
+        NSString *displayValue = answer;
+        if ([answer isKindOfClass:[NSNumber class]]) {
+            displayValue = [_phoneNumberFormatter stringForObjectValue:answer];
+        }
+        self.textField.text = displayValue;
+    } else {
+        self.textField.text = nil;
+    }
+}
+
+- (BOOL)isAnswerValid {
+    NSString *text = [self rawValue:self.textField.text];
+    BOOL isValid = YES;
+    if ([text length]) {
+        isValid = [[self.formItem impliedAnswerFormat] isAnswerValidWithString:text];
+    }
+    return isValid;
+}
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    ORKPhoneNumberAnswerFormat *answerFormat = (ORKPhoneNumberAnswerFormat *)[self.formItem impliedAnswerFormat];
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSString *rawValue = [self rawValue:text];
+
+    if (answerFormat.maximumLength > 0) {
+        if ([rawValue length] > answerFormat.maximumLength) {
+            return NO;
+        }
+    }
 
     [self inputValueDidChange];
+
+    return YES;
 }
 
 @end
