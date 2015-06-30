@@ -777,12 +777,19 @@ static const CGFloat kHMargin = 15.0;
     [super cellInit];
 
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
-    self.textField.allowsSelection = YES;
+    self.textField.allowsSelection = NO;
     self.textField.manageUnitAndPlaceholder = YES;
     self.textField.placeholder = self.formItem.placeholder;
+    [self.textField addTarget:self action:@selector(inputValueDidChange) forControlEvents:UIControlEventEditingChanged];
     _ssnTextFieldDelegate = [SSNTextFieldDelegate new];
 
     [self answerDidChange];
+}
+
+- (void)inputValueDidChange {
+    NSString *text = self.textField.text;
+    [self ork_setAnswer:[text length] ? text : ORKNullAnswerValue()];
+    [super inputValueDidChange];
 }
 
 #pragma mark UITextFieldDelegate
@@ -791,12 +798,6 @@ static const CGFloat kHMargin = 15.0;
     BOOL shouldChange = [_ssnTextFieldDelegate textField:textField
                            shouldChangeCharactersInRange:range
                                        replacementString:string];
-
-    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-
-    [self ork_setAnswer:[text length] ? text : ORKNullAnswerValue()];
-    [super inputValueDidChange];
-
     return shouldChange;
 }
 

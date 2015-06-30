@@ -1248,6 +1248,14 @@ static NSArray *ork_processTextChoices(NSArray *textChoices) {
     return ORKQuestionTypeSSN;
 }
 
+- (BOOL)isAnswerValid:(id)answer {
+    if ([answer isKindOfClass:[NSString class]]) {
+        NSString *answerString = answer;
+        return [answerString length] == 11;
+    }
+    return NO;
+}
+
 @end
 
 
