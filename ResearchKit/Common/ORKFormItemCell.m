@@ -45,6 +45,7 @@
 #import "ORKPicker.h"
 #import "ORKScaleSliderView.h"
 #import "ECPhoneNumberFormatter.h"
+#import "SSNTextFieldDelegate.h"
 
 
 static const CGFloat kVMargin = 10.0;
@@ -765,6 +766,41 @@ static const CGFloat kHMargin = 15.0;
 
 @end
 
+
+#pragma mark - ORKFormItemSSNCell
+
+@implementation ORKFormItemSSNCell {
+    SSNTextFieldDelegate *_ssnTextFieldDelegate;
+}
+
+- (void)cellInit {
+    [super cellInit];
+
+    self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    self.textField.allowsSelection = YES;
+    self.textField.manageUnitAndPlaceholder = YES;
+    self.textField.placeholder = self.formItem.placeholder;
+    _ssnTextFieldDelegate = [SSNTextFieldDelegate new];
+
+    [self answerDidChange];
+}
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL shouldChange = [_ssnTextFieldDelegate textField:textField
+                           shouldChangeCharactersInRange:range
+                                       replacementString:string];
+
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+
+    [self ork_setAnswer:[text length] ? text : ORKNullAnswerValue()];
+    [super inputValueDidChange];
+
+    return shouldChange;
+}
+
+@end
 
 #pragma mark - ORKFormItemTextCell
 

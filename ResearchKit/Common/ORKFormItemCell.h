@@ -88,6 +88,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
+@interface ORKFormItemSSNCell : ORKFormItemTextFieldCell
+
+@end
+
+
 @interface ORKFormItemTextCell : ORKFormItemCell <UITextViewDelegate>
 
 @end

@@ -22,6 +22,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0240AED81B42A7D900B8EA4E /* SSN.h in Headers */ = {isa = PBXBuildFile; fileRef = 0240AED41B42A7D900B8EA4E /* SSN.h */; };
+		0240AED91B42A7D900B8EA4E /* SSN.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240AED51B42A7D900B8EA4E /* SSN.m */; };
+		0240AEDA1B42A7D900B8EA4E /* SSNTextFieldDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0240AED61B42A7D900B8EA4E /* SSNTextFieldDelegate.h */; };
+		0240AEDB1B42A7D900B8EA4E /* SSNTextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240AED71B42A7D900B8EA4E /* SSNTextFieldDelegate.m */; };
 		02B7B7C51B3BE56700F61E0B /* ECPhoneNumberFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */; };
 		02B7B7C61B3BE56700F61E0B /* ECPhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */; };
 		02F570BA1B37FB75000ABC52 /* ORKFormValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 02F570B81B37FB75000ABC52 /* ORKFormValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -415,6 +419,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0240AED41B42A7D900B8EA4E /* SSN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSN.h; sourceTree = "<group>"; };
+		0240AED51B42A7D900B8EA4E /* SSN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSN.m; sourceTree = "<group>"; };
+		0240AED61B42A7D900B8EA4E /* SSNTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNTextFieldDelegate.h; sourceTree = "<group>"; };
+		0240AED71B42A7D900B8EA4E /* SSNTextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNTextFieldDelegate.m; sourceTree = "<group>"; };
 		02B7B61A1B3BE56600F61E0B /* ECPhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECPhoneNumberFormatter.h; path = ECPhoneNumberFormatter/ECPhoneNumberFormatter.h; sourceTree = "<group>"; };
 		02B7B61B1B3BE56600F61E0B /* ECPhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECPhoneNumberFormatter.m; path = ECPhoneNumberFormatter/ECPhoneNumberFormatter.m; sourceTree = "<group>"; };
 		02F570B81B37FB75000ABC52 /* ORKFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKFormValidator.h; sourceTree = "<group>"; };
@@ -856,9 +864,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0240AED31B42A7D900B8EA4E /* SSNTextFieldManager */ = {
+			isa = PBXGroup;
+			children = (
+				0240AED41B42A7D900B8EA4E /* SSN.h */,
+				0240AED51B42A7D900B8EA4E /* SSN.m */,
+				0240AED61B42A7D900B8EA4E /* SSNTextFieldDelegate.h */,
+				0240AED71B42A7D900B8EA4E /* SSNTextFieldDelegate.m */,
+			);
+			name = SSNTextFieldManager;
+			path = SSNTextFieldManager/SSNTextFieldManager;
+			sourceTree = "<group>";
+		};
 		02B7B6151B3BE56600F61E0B /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				0240AED31B42A7D900B8EA4E /* SSNTextFieldManager */,
 				02B7B6161B3BE56600F61E0B /* ECPhoneNumberFormatter */,
 			);
 			path = Vendor;
@@ -1825,6 +1846,7 @@
 				86C40D941A8D7C5C00081FAC /* ORKStepViewController.h in Headers */,
 				B8760F2B1AFBEFB0007FA16F /* ORKScaleRangeDescriptionLabel.h in Headers */,
 				86C40C221A8D7C5C00081FAC /* ORKCountdownStep.h in Headers */,
+				0240AED81B42A7D900B8EA4E /* SSN.h in Headers */,
 				86C40DB61A8D7C5C00081FAC /* ORKSurveyAnswerCellForText.h in Headers */,
 				86C40E281A8D7C5C00081FAC /* ORKSignatureView.h in Headers */,
 				86C40C8C1A8D7C5C00081FAC /* ORKActiveStepViewController.h in Headers */,
@@ -1853,6 +1875,7 @@
 				86C40D141A8D7C5C00081FAC /* ORKDefines_Private.h in Headers */,
 				86C40CA81A8D7C5C00081FAC /* ORKPedometerRecorder.h in Headers */,
 				86C40CD01A8D7C5C00081FAC /* ORKInstructionStepView.h in Headers */,
+				0240AEDA1B42A7D900B8EA4E /* SSNTextFieldDelegate.h in Headers */,
 				86C40E021A8D7C5C00081FAC /* ORKConsentDocument_Internal.h in Headers */,
 				86C40E181A8D7C5C00081FAC /* ORKConsentSection.h in Headers */,
 				86AD910A1AB7AD1E00361FEB /* ORKNavigationContainerView.h in Headers */,
@@ -2285,12 +2308,14 @@
 				86C40C201A8D7C5C00081FAC /* ORKAudioStepViewController.m in Sources */,
 				86C40D081A8D7C5C00081FAC /* ORKCountdownLabel.m in Sources */,
 				86C40E121A8D7C5C00081FAC /* ORKConsentSceneViewController.m in Sources */,
+				0240AEDB1B42A7D900B8EA4E /* SSNTextFieldDelegate.m in Sources */,
 				D442397E1AF17F7600559D96 /* ORKImageCaptureStepViewController.m in Sources */,
 				86C40CAE1A8D7C5C00081FAC /* ORKRecorder.m in Sources */,
 				86C40DAC1A8D7C5C00081FAC /* ORKSurveyAnswerCellForNumber.m in Sources */,
 				86C40C541A8D7C5C00081FAC /* ORKTappingIntervalStep.m in Sources */,
 				86C40D6C1A8D7C5C00081FAC /* ORKResult.m in Sources */,
 				86C40CD21A8D7C5C00081FAC /* ORKInstructionStepView.m in Sources */,
+				0240AED91B42A7D900B8EA4E /* SSN.m in Sources */,
 				86C40D181A8D7C5C00081FAC /* ORKErrors.m in Sources */,
 				25ECC09C1AFBD8B300F3D63B /* ORKReactionTimeViewController.m in Sources */,
 				86C40DB01A8D7C5C00081FAC /* ORKSurveyAnswerCellForScale.m in Sources */,

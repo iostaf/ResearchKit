@@ -730,7 +730,12 @@
                         class = [ORKFormItemPhoneNumberCell class];
                         break;
                     }
-                        
+
+                    case ORKQuestionTypeSSN: {
+                        class = [ORKFormItemSSNCell class];
+                        break;
+                    }
+
                     case ORKQuestionTypeText: {
                         ORKTextAnswerFormat *textFormat = (ORKTextAnswerFormat *)answerFormat;
                         if (! textFormat.multipleLines) {

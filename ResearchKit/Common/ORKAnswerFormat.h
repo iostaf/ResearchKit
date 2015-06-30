@@ -76,7 +76,10 @@ typedef NS_ENUM(NSInteger, ORKQuestionType) {
     ORKQuestionTypeTimeInterval,
 
     /// In phone number question(s)
-    ORKQuestionTypePhoneNumber
+    ORKQuestionTypePhoneNumber,
+
+    /// In SSN question(s)
+    ORKQuestionTypeSSN
 } ORK_ENUM_AVAILABLE;
 
 /// An enumeration of the types of answer choices available.
@@ -1003,6 +1006,14 @@ ORK_CLASS_AVAILABLE
  */
 ORK_CLASS_AVAILABLE
 @interface ORKPhoneNumberAnswerFormat : ORKTextAnswerFormat
+
+@end
+
+/**
+ TODO: Document it!
+ */
+ORK_CLASS_AVAILABLE
+@interface ORKSSNAnswerFormat : ORKTextAnswerFormat
 
 @end
 

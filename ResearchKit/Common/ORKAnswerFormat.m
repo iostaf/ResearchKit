@@ -53,6 +53,7 @@ NSString *ORKQuestionTypeString(ORKQuestionType questionType) {
             SQT_CASE(Decimal);
             SQT_CASE(Integer);
             SQT_CASE(PhoneNumber);
+            SQT_CASE(SSN);
             SQT_CASE(Boolean);
             SQT_CASE(Text);
             SQT_CASE(DateAndTime);
@@ -1224,12 +1225,27 @@ static NSArray *ork_processTextChoices(NSArray *textChoices) {
 @implementation ORKPhoneNumberAnswerFormat
 
 - (instancetype)init {
-    self = [super initWithMaximumLength:10];
+    self = [super initWithMaximumLength:0];
     return self;
 }
 
 - (ORKQuestionType)questionType {
     return ORKQuestionTypePhoneNumber;
+}
+
+@end
+
+
+#pragma mark - ORKSSNAnswerFormat
+
+@implementation ORKSSNAnswerFormat
+
+- (instancetype)init {
+    return self;
+}
+
+- (ORKQuestionType)questionType {
+    return ORKQuestionTypeSSN;
 }
 
 @end
