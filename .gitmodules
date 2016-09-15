@@ -1,6 +1,6 @@
 [submodule "ResearchKit/Vendor/ECPhoneNumberFormatter"]
 	path = ResearchKit/Vendor/ECPhoneNumberFormatter
-	url = git@github.com:iostaf/ECPhoneNumberFormatter.git
+	url = https://github.com/iostaf/ECPhoneNumberFormatter.git
 [submodule "ResearchKit/Vendor/SSNTextFieldManager"]
 	path = ResearchKit/Vendor/SSNTextFieldManager
-	url = git@github.com:iostaf/SSNTextFieldManager.git
+	url = https://github.com/iostaf/SSNTextFieldManager.git
